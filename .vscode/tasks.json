@@ -1,0 +1,19 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build and Run",
+            "type": "shell",
+            "command": "stop-process -name middlware; go build middleware.go; ./middleware.exe",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Hit Site",
+            "type": "shell",
+            "command": "iwr http://localhost:8000"
+        }
+    ]
+}
