@@ -8,12 +8,23 @@
             "group": {
                 "kind": "build",
                 "isDefault": true
-            }
+            },
+            "problemMatcher": []
         },
         {
             "label": "Hit Site",
             "type": "shell",
             "command": "iwr http://localhost:8000"
-        }
+        },
+        {
+            "label": "Go Run",
+            "type": "shell",
+            "command": "$ENV:GOROOT='c:\\utils\\go'; go run 4.3.go",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
     ]
 }

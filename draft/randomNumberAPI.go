@@ -19,7 +19,7 @@ type RandomNumberAPI struct {
 
 func (p *RandomNumberAPI) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path == "/api/random" {
-		random := getRandom(w, r)
+		random := getRandom()
 		json.NewEncoder(w).Encode(random)
 		return
 	}
@@ -27,7 +27,7 @@ func (p *RandomNumberAPI) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	return
 }
 
-func getRandom(w http.ResponseWriter, r *http.Request) (Random) {
+func getRandom() (Random) {
 	rand.Seed(time.Now().UTC().UnixNano())
 	max := 1000
 	min := 0
