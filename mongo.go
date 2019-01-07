@@ -3,8 +3,8 @@ package main
 import (
         "fmt"
         "log"
-	"gopkg.in/mgo.v2"
-	"gopkg.in/mgo.v2/bson"
+        "gopkg.in/mgo.v2"
+        "gopkg.in/mgo.v2/bson"
 )
 
 type Person struct {
@@ -23,8 +23,8 @@ func main() {
         session.SetMode(mgo.Monotonic, true)
 
         c := session.DB("test").C("people")
-        err = c.Insert(&Person{"Brian", "(555) 555 5555"},
-	                   &Person{"George", "(555) 555 5556"})
+        err = c.Insert( &Person{"Brian", "(555) 555 5555"},
+	                &Person{"George", "(555) 555 5556"})
         if err != nil {
                 log.Fatal(err)
         }
