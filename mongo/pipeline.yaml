@@ -10,6 +10,8 @@ steps:
   displayName: Go Dependencies 
 
 - bash: |
+    cd mongo 
+    ls
     go build ./src/m_example/m_example.go
   displayName: Go Build
 
