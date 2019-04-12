@@ -11,8 +11,8 @@ steps:
 
 - bash: |
     cd mongo 
-    ls
-    go build ./src/m_example/m_example.go
+    ls src/m_example/
+    go build src/m_example/m_example.go
   displayName: Go Build
 
 - bash: |
