@@ -5,13 +5,12 @@ steps:
 - bash: |
     cd mongo 
     export GOPATH=`pwd` 
-    go get github.com/globalsign/mgo
-    go get github.com/globalsign/mgo/bson 
+    go get -v github.com/globalsign/mgo
+    go get -v github.com/globalsign/mgo/bson 
   displayName: Go Dependencies 
 
 - bash: |
-    cd mongo 
-    ls src/m_example/
+    echo  $GOPATH 
     go build src/m_example/m_example.go
   displayName: Go Build
 
