@@ -1,0 +1,35 @@
+pool:
+    vmImage: 'Ubuntu 16.04'
+
+steps:
+- bash: |
+    cd mongo 
+    export GOPATH=`pwd` 
+    go get github.com/globalsign/mgo
+    go get github.com/globalsign/mgo/bson 
+  displayName: Go Dependencies 
+
+- bash: |
+    go build .\src\m_example\m_example.go
+  displayName: Go Build
+
+- bash: |
+    docker run -d -p 27017:27017 --rm --name go-test mongo
+  displayName: Create Mongo Docker Instance 
+
+- bash: |
+    go test -v
+  displayName: Go Unit Test
+
+- bash: |
+    docker stop go-test
+  displayName: Destory Mongo Instance
+
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+  inputs:
+    SourceFolder: Deploy
+    TargetFolder: '$(build.artifactstagingdirectory)'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
