@@ -10,7 +10,8 @@ steps:
   displayName: Go Dependencies 
 
 - bash: |
-    echo  $GOPATH 
+    cd mongo 
+    export GOPATH=`pwd` 
     go build src/m_example/m_example.go
   displayName: Go Build
 
@@ -19,6 +20,8 @@ steps:
   displayName: Create Mongo Docker Instance 
 
 - bash: |
+    cd mongo 
+    export GOPATH=`pwd` 
     go test -v
   displayName: Go Unit Test
 
