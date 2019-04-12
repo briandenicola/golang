@@ -10,7 +10,7 @@ steps:
   displayName: Go Dependencies 
 
 - bash: |
-    go build .\src\m_example\m_example.go
+    go build ./src/m_example/m_example.go
   displayName: Go Build
 
 - bash: |
