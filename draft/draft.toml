@@ -1,7 +1,0 @@
-[environments]
-  [environments.development]
-    name = "draft"
-    namespace = "default"
-    wait = false
-    watch = true 
-    watch_delay = 2
